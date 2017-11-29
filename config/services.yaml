@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    my_param: '%env(LIMITE)%'
 
 services:
     # default configuration for services in *this* file
@@ -27,3 +28,20 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Article\ArticleFetcher:
+        arguments: ['@doctrine.orm.entity_manager','%my_param%']
+        public: true
+        autowire: false
+
+    App\Slug\SlugGenerator:
+        public: true
+
+    App\Article\ArticleStatsLogger:
+        public: true
+    App\Article\CountViewUpdater:
+        public: true
+    App\Article\NewArticleHandler:
+        public: true
+    App\Article\UpdateArticleHandler:
+        public: true

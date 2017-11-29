@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% for article in articles %}
+        {% if article != null %}
     <ul>
-        <li><a href="#">Titre de l'article - 5</a></li>
+        <li><a href="{{ path('article_update', {'slug' : article.slug} ) }}">{{ article.title }} - {{ article.countView }}</a></li>
     </ul>
+{% endif %}
+    {% endfor %}
 {% endblock %}

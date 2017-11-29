@@ -12,10 +12,10 @@
         </thead>
         <tbody>
             <tr>
-                <td>Titre de l'article</td>
-                <td>Date de la stat</td>
-                <td>192.168.99.100</td>
-                <td>create</td>
+                <td>{{ article.name }}</td>
+                <td>{{ article.date|date }}</td>
+                <td>{{ article.ip }}</td>
+                <td>{{ article.action }}</td>
             </tr>
         </tbody>
     </table>

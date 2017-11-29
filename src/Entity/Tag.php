@@ -26,9 +26,14 @@ class Tag
 
     /**
      * Tag constructor.
+     * @param $id
+     * @param $name
+     * @param $slug
      */
-    public function __construct()
+    public function __construct($namen, $slug)
     {
+        $this->name = $name;
+        $this->slug = $slug;
     }
 
 

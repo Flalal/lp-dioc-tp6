@@ -48,6 +48,14 @@ class User implements UserInterface, \Serializable
         $this->articles = new ArrayCollection();
     }
 
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
 
     // Fixme
 
@@ -173,7 +181,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return mixed
      */
-    public function getIsAuthor()
+    public function isAuthor()
     {
         return $this->isAuthor;
     }
@@ -201,6 +209,8 @@ class User implements UserInterface, \Serializable
     {
         $this->articles = $articles;
     }
+
+
 
 
 }
